@@ -1,2 +1,2 @@
 # default-facebook-api
-Api DIVIO Base Project
+Api DEVIO Base Project
