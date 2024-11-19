@@ -1,0 +1,55 @@
+env: "local"
+
+appDetail:
+  name: "privilege-api-myAis"
+  port: 8000
+  viperTTL: 1
+  apiPrefix: "/api/myais/v1"
+
+db:
+  driver: "mssql"
+  host: "sql-privilege-az-asse-dev-001.database.windows.net"
+  username: "sqladmin"
+  password: "A&2usnz&909f3YtmP@l3"
+  database: "SIT-VAPT-PRIVDB"
+  maxLifeTime: 3
+  maxOpenConns: 10
+  maxIdleConns: 10
+
+redis:
+  address: "localhost:6379"
+  password: ""
+  db: 0
+  ssl: false
+  authTTL: 60
+  poolSize: 10
+
+jwt:
+  publicKeyBase64: "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFtdldtVlhLVkZQejlsY05RMVBPTQpITFYram5Tcm11aHhjSFo3OXd2SGdFVnJ0cWZ0cWNEYjZGY1NFcXNVSjhsZHkwNnEveG81NDNLSnlHcmJQNXFCClUvQ3pvTDhVanI0UldlajB1emp2VktQOXpGa1RTeHhoeE5iYkcyeHdjRVVHaGFGYlRrc0pyRmtyZnFQdXpVVE4KaFpKdDBQMDZ6bWhXT21meWo1a3BPcVptMjUvdDZhaWdENWdyc0RQQk5nc21OUStCdjJEQTd0YTROdVhSZzIrWQpUeGlsVTVVUEtSR1lvaFh4bjdINWVybFNhUDl6NU42SzhMNzVibDZnOWJXamlLYlp1T0k4dmpPTXdiclp1aTBCCm5pZy91TWtteDNJNWRPcXk4N3Z6clNXN05XY2ZyUnZFKzQxWGlWdHVSSzdiVVlpeko1WmZFSEFlMEowUjJpODAKRFFJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0tCg=="
+
+logRus:
+  jsonFormatter: true
+  htmlEscape: true
+  mask:
+    field: "Password,Authorization" # Add field names in an array format.
+    result: "<Redacted>"
+
+logger:
+  middlewareLogEnabled: true
+
+encryption:
+  encryptedDataKey: "5sjrrsyRkZeedjgh64tXtOJATTmwswrJTtARj4p5BTEgxAf5jDeq6BGncYcjNV66"
+  masterKey: "jP2IbpDpvNSOYlzxdk5UhJQMLo0sGjYd"
+  initializationVector: "0000000000000000"
+  encryptedDataKeyInitializationVector: "1234567890123456"
+
+facebook:
+  accessToken: "EAB7TcXaWxrMBAMnHRzIAcQtFTwvTvxlY7lXsZBAA4kHxMYwestXtR3XdqqagSZC9xcQwakNOLOn9Abe9C3OlLziCPstF9FB7Eb0RioapWDT4EK0HgaQEVjTk8F36dJf9fgEM8g77rUQ97M3uP7527HfHlAqsV1vGGmNrwyRm6beCE8Dovx4CTQqvrq4gZBGmFYtrp1k2QZDZD" # using key from keyvalue
+  actID: "act_674739074212581"
+  baseUrl: "https://graph.facebook.com/v21.0"
+  createCampaign:
+    url: "/{actID}/campaigns"
+    method: "POST"
+  getCampaignWithFields:
+    url: "/"
+    method: "GET"
