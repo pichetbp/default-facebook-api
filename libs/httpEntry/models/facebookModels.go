@@ -37,8 +37,56 @@ type (
 
 type (
 	DefineTargetReq struct {
+		Name             string
+		OptimizationGoal string
+		BillingEvent     string
+		BidAmount        int
+		DailyBudget      int
+		CampaignID       string
+		Targeting        struct {
+			GeoLocations struct {
+				Countries []string
+			}
+			FacebookPositions []string
+		}
+		Status         string
+		PromotedObject struct {
+			PageID string
+		}
 	}
 
 	DefineTargetRes struct {
+	}
+)
+
+// facebook create custom audience
+type (
+	CreateCustomAudienceReq struct {
+		Name               string
+		Subtype            string
+		Description        string
+		CustomerFileSource string
+	}
+	CreateCustomAudienceRes struct {
+		ID string `json:"id"`
+	}
+)
+
+// facebook get custom audience
+type (
+	GetCustomAudienceReq struct {
+		ID string
+	}
+
+	GetCustomAudienceRes struct {
+		ID                 string `json:"id"`
+		AccountID          string `json:"account_id"`
+		CustomerFileSource string `json:"customer_file_source"`
+		DataSource         struct {
+			Type           string `json:"type"`
+			SubType        string `json:"sub_type"`
+			CreationParams string `json:"creation_params"`
+		} `json:"data_source"`
+		Description string `json:"description"`
 	}
 )
